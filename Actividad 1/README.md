@@ -20,7 +20,7 @@ Aplicar fundamentos de Kotlin en programas de consola que resuelven problemas si
    - Calcula bono economico con base en la puntuacion.
    - Valida rangos y tipo de dato.
 
-3. **Pieda, Papel o Tijera.kt**
+3. **Piedra, Papel o Tijera.kt**
    - Juego contra la computadora con eleccion aleatoria.
    - Permite multiples rondas.
    - Valida entradas de usuario.
@@ -37,12 +37,12 @@ Aplicar fundamentos de Kotlin en programas de consola que resuelven problemas si
 ```text
 Actividad 1/
   src/
-    main/
+    Ejercicios/
       kotlin/
         Adivina Numero.kt
         Calculador Elemental.kt
         Evaluacion Enpleados.kt
-        Pieda, Papel o Tijera.kt
+        Piedra, Papel o Tijera.kt
     test/
 ```
 
@@ -57,7 +57,7 @@ Actividad 1/
 ### Opcion A: IDE (recomendada)
 
 1. Abrir la carpeta `Actividad 1` en IntelliJ IDEA o Android Studio.
-2. Ir a `src/main/kotlin/`.
+2. Ir a `src/Ejercicios/kotlin/`.
 3. Ejecutar el archivo `.kt` deseado (cada archivo tiene su propia funcion `main`).
 
 ## Manejo de errores implementado
