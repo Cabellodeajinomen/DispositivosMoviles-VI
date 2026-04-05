@@ -23,7 +23,7 @@ fun main() {
 
         // Validar que la opcion sea valida
         if (eleccionUsuario == null || eleccionUsuario !in opciones) {
-            println("Eleccion no valida. Intente nuevamente.")
+            println("Eleccion no valida. Intente nuevamente")
             println()
             continue
         }
@@ -51,6 +51,6 @@ fun main() {
         println()
     }
 
-    println("Juego finalizado. Gracias por jugar.")
+    println("Juego finalizado. Gracias por jugar")
 }
 

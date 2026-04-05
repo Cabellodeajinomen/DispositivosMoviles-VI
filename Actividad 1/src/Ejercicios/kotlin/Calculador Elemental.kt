@@ -26,7 +26,7 @@ fun main() {
 
                 // Validacion de numeros ingresados
                 if (primerNumero == null || segundoNumero == null) {
-                    println("Entrada no valida. Debe ingresar numeros.")
+                    println("Entrada no valida. Debe ingresar numeros")
                     println()
                     continue
                 }
@@ -39,7 +39,7 @@ fun main() {
                     4 -> {
                         // Validacion para division entre cero
                         if (segundoNumero == 0.0) {
-                            println("Error: No se puede dividir entre cero.")
+                            println("Error: No se puede dividir entre cero")
                             println()
                             continue
                         }
@@ -54,13 +54,13 @@ fun main() {
 
             // Opcion para salir
             5 -> {
-                println("Saliendo de la calculadora. Hasta luego.")
+                println("Saliendo de la calculadora. Hasta luego")
                 ejecutando = false
             }
 
             // Opcion no valida
             else -> {
-                println("Opcion no disponible. Intente nuevamente.")
+                println("Opcion no disponible. Intente nuevamente")
                 println()
             }
         }

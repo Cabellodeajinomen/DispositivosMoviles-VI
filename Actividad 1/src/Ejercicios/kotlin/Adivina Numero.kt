@@ -14,7 +14,7 @@ fun main() {
 
     println("Bienvenido al juego: Adivina el Numero")
     println("Adivina el numero entre 1 y 30.")
-    println("Tienes $intentosRestantes intentos para adivinarlo.")
+    println("Tienes $intentosRestantes intentos para adivinarlo")
     println()
 
     while (intentosRestantes > 0 && !adivinado) {
@@ -23,7 +23,7 @@ fun main() {
 
         // Validar que el intento sea un numero valido en el rango
         if (intento == null || intento !in 1..30) {
-            println("Entrada no valida. Ingresa un numero entre 1 y 30.")
+            println("Entrada no valida. Ingresa un numero entre 1 y 30")
             println()
             continue
         }
@@ -39,7 +39,7 @@ fun main() {
 
             // Mostrar mensaje si ya no hay intentps
             if (intentosRestantes == 0) {
-                println("Game over. Se acabaron tus intentos.")
+                println("Game over. Se acabaron tus intentos")
                 println("El numero secreto era: $numeroSecreto")
             } else {
                 // Proporcionar pista sobre si el numero es mayor o menor
