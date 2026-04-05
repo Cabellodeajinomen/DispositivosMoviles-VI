@@ -1,12 +1,38 @@
-# Archivos locales de IDE (no necesarios para ejecutar el proyecto)
+# IDEs (IntelliJ / Android Studio)
+
 **/.idea/
 *.iml
 
-# Salidas de compilacion
-**/out/
-**/build/
+# Kotlin / Java / Gradle build outputs
 
-# Archivos de sistema
+**/build/
+**/out/
+.gradle/
+**/.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+
+# Kotlin tooling
+
+.kotlin/
+**/kotlin-js-store/
+
+
+# Logs / temp
+
+*.log
+*.tmp
+*.swp
+*.swo
+
+
+# OS files
+
 .DS_Store
 Thumbs.db
 
+
+# Optional local env files
+
+# .env
+# .env.*
