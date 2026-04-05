@@ -1,0 +1,12 @@
+# Archivos locales de IDE (no necesarios para ejecutar el proyecto)
+**/.idea/
+*.iml
+
+# Salidas de compilacion
+**/out/
+**/build/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
