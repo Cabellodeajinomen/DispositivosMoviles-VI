@@ -2,8 +2,8 @@
  * Descripcion: Clase Producto con validacion de precio y descuento
  * Permite establecer datos con metodos set/get y calcular el precio final
  * Autor: Alex Rhoddo P
- * Fecha creacion: 4 de abril de 2026
- * Fecha ultima modificacion: 4 de abril de 2026
+ * Fecha creacion: 04 de abril de 2026
+ * Fecha ultima modificacion: 04 de abril de 2026
  */
 
 class Producto {
@@ -37,7 +37,7 @@ fun main() {
     producto.setDescuento(20.0)
 
     println("Precio original: ${producto.getPrecio()}")
-    println("Descuento aplicado: ${producto.getDescuento()}%")
+    println("Descuento: ${producto.getDescuento()}%")
     println("Precio final: ${producto.calcularPrecioFinal()}")
 
     // Probar validacion de descuento fuera de rango

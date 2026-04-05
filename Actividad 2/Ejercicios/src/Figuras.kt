@@ -2,8 +2,8 @@
  * Descripcion: Jerarquia de figuras con clase abstracta Shape
  * Incluye subclases Cuadrado, Circulo y Rectangulo para calcular area y perimetro
  * Autor: Alex Rhoddo P
- * Fecha creacion: 4 de abril de 2026
- * Fecha ultima modificacion: 4 de abril de 2026
+ * Fecha creacion: 04 de abril de 2026
+ * Fecha ultima modificacion: 04 de abril de 2026
  */
 
 import kotlin.math.PI
@@ -27,7 +27,7 @@ class Cuadrado : Shape {
     private var lado: Double
 
     constructor(lado: Double) {
-        require(lado > 0.0) { "El lado debe ser mayor que cero." }
+        require(lado > 0.0) { "El lado debe ser mayor a cero." }
         this.lado = lado
     }
 
@@ -66,8 +66,8 @@ class Rectangulo : Shape {
     private var altura: Double
 
     constructor(base: Double, altura: Double) {
-        require(base > 0.0) { "La base debe ser mayor que cero." }
-        require(altura > 0.0) { "La altura debe ser mayor que cero." }
+        require(base > 0.0) { "La base debe ser mayor a cero." }
+        require(altura > 0.0) { "La altura debe ser mayor a cero." }
         this.base = base
         this.altura = altura
     }
