@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema base de la app. -->
+    <style name="Base.Theme.InteraccionConImagenes" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Personaliza el tema oscuro aqui. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+</resources>
