@@ -23,6 +23,7 @@ class ReproductorDeMusicaController(
     }
 
     fun play(): Boolean {
+        // Crea o reutiliza el reproductor.
         return runCatching {
             val player = mediaPlayer ?: createPlayer(currentTrackIndex).also { mediaPlayer = it }
             if (!player.isPlaying) {
@@ -34,6 +35,7 @@ class ReproductorDeMusicaController(
     }
 
     fun pause() {
+        // Pausa solo si ya estaba sonando.
         val player = mediaPlayer ?: return
         if (player.isPlaying) {
             player.pause()
@@ -41,6 +43,7 @@ class ReproductorDeMusicaController(
     }
 
     fun stop() {
+        // Detiene y deja el audio en cero.
         val player = mediaPlayer ?: return
         if (player.isPlaying) {
             player.pause()
@@ -49,6 +52,7 @@ class ReproductorDeMusicaController(
     }
 
     fun skip(): Boolean {
+        // Cambia a la siguiente cancion.
         return runCatching {
             val nextTrackIndex = (currentTrackIndex + 1) % playlist.size
             startTrack(nextTrackIndex)
@@ -57,12 +61,14 @@ class ReproductorDeMusicaController(
     }
 
     fun release() {
+        // Libera recursos al cerrar.
         mediaPlayer?.release()
         mediaPlayer = null
         currentTrackIndex = 0
     }
 
     private fun createPlayer(trackIndex: Int): MediaPlayer {
+        // Prepara el audio de la cancion actual.
         return MediaPlayer.create(context, playlist[trackIndex]).apply {
             setOnCompletionListener {
                 playNextTrack()
@@ -71,6 +77,7 @@ class ReproductorDeMusicaController(
     }
 
     private fun startTrack(trackIndex: Int) {
+        // Reinicia el reproductor con otra cancion.
         mediaPlayer?.release()
         currentTrackIndex = trackIndex
         mediaPlayer = createPlayer(trackIndex)
@@ -79,6 +86,7 @@ class ReproductorDeMusicaController(
     }
 
     private fun playNextTrack() {
+        // Avanza automaticamente al terminar.
         val nextTrackIndex = (currentTrackIndex + 1) % playlist.size
         startTrack(nextTrackIndex)
     }

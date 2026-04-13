@@ -10,6 +10,7 @@ import android.view.View
  */
 class InteraccionConImagenManager {
     fun attachClickAction(targetView: View, onImageClick: () -> Unit) {
+        // Solo conecta el clic de la imagen.
         targetView.setOnClickListener { onImageClick() }
     }
 }

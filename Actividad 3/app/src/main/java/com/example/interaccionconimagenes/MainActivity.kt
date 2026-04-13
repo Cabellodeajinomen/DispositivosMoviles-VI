@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat
  * Fecha de ultima modificacion: 2026-04-12
  */
 class MainActivity : AppCompatActivity() {
+    // Datos de cada cancion en pantalla.
     private data class CancionUi(
         val audioResId: Int,
         val titleResId: Int,
@@ -35,12 +36,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        // Carga vistas y canciones.
         setContentView(R.layout.activity_main)
         canciones = listOf(
             CancionUi(R.raw.justin_bieber_confident, R.string.song_confident, R.drawable.confident),
             CancionUi(R.raw.the_weeknd_ariana_grande_die_for_you, R.string.song_die_for_you, R.drawable.die_for_you)
         )
 
+        // Controla el audio y avisa cuando cambia la cancion.
         reproductorDeMusicaController = ReproductorDeMusicaController(
             this,
             canciones.map { it.audioResId }
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // Referencias de la interfaz.
         imageInteractive = findViewById(R.id.imageInteractive)
 
         textSongName = findViewById(R.id.textSongName)
@@ -72,6 +76,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupImageInteraction() {
+        // Al tocar la imagen se muestra un mensaje.
         val imageInteractive = findViewById<ImageView>(R.id.imageInteractive)
         val interaccionConImagenManager = InteraccionConImagenManager()
         interaccionConImagenManager.attachClickAction(imageInteractive) {
@@ -80,6 +85,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupMusicControls() {
+        // Botones del reproductor.
         textStatus = findViewById(R.id.textStatus)
         val btnPlayPause = findViewById<Button>(R.id.btnPlayPause)
         val btnSkip = findViewById<Button>(R.id.btnSkip)
@@ -105,6 +111,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSkip.setOnClickListener {
+            // Pasa a la siguiente cancion.
             val skipped = reproductorDeMusicaController.skip()
             if (skipped) {
                 textStatus.setText(R.string.music_status_playing)
@@ -114,6 +121,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnStop.setOnClickListener {
+            // Detiene y regresa al inicio.
             reproductorDeMusicaController.stop()
             textStatus.setText(R.string.music_status_stopped)
             btnPlayPause.text = "▶"
@@ -122,6 +130,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun updateSongInfo(trackIndex: Int) {
+        // Actualiza portada y titulo.
         val cancion = canciones[trackIndex]
         textSongName.setText(cancion.titleResId)
         imageInteractive.setImageResource(cancion.imageResId)
