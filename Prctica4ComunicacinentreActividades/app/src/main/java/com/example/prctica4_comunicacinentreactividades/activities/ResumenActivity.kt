@@ -1,3 +1,9 @@
+/*
+ * Descripcion: Muestra los datos del perfil y devuelve una confirmacion al formulario.
+ * Autor: Alex Rhoddo P.
+ * Fecha de creacion: 19-04-2026
+ * Fecha de ultima modificacion: 19-04-2026
+ */
 package com.example.prctica4_comunicacinentreactividades.activities
 
 import android.app.Activity
@@ -11,12 +17,6 @@ import androidx.activity.ComponentActivity
 import com.example.prctica4_comunicacinentreactividades.R
 import com.example.prctica4_comunicacinentreactividades.model.Usuario
 
-/*
- * Descripcion: Muestra los datos del perfil y devuelve una confirmacion al formulario.
- * Autor: Usuario
- * Fecha de creacion: 2026-04-19
- * Fecha de ultima modificacion: 2026-04-19
- */
 class ResumenActivity : ComponentActivity() {
 
     private lateinit var tvNombreValor: TextView
@@ -32,6 +32,7 @@ class ResumenActivity : ComponentActivity() {
 
         val usuario = obtenerUsuarioDelIntent()
         if (usuario == null) {
+            // Si no llegan datos, se cierra la pantalla para evitar un resumen inconsistente.
             Toast.makeText(this, getString(R.string.error_usuario_no_recibido), Toast.LENGTH_SHORT).show()
             finish()
             return
@@ -44,6 +45,7 @@ class ResumenActivity : ComponentActivity() {
         }
 
         findViewById<Button>(R.id.btnVolverEditar).setOnClickListener {
+            // Regresa sin confirmar para que el usuario pueda ajustar el formulario.
             setResult(Activity.RESULT_CANCELED)
             finish()
         }
@@ -74,6 +76,7 @@ class ResumenActivity : ComponentActivity() {
     }
 
     private fun devolverConfirmacion() {
+        // Informa a FormularioActivity que el perfil fue confirmado por el usuario.
         val data = Intent().putExtra(EXTRA_CONFIRMADO, true)
         setResult(Activity.RESULT_OK, data)
         finish()
@@ -84,4 +87,8 @@ class ResumenActivity : ComponentActivity() {
         const val EXTRA_CONFIRMADO = "extra_confirmado"
     }
 }
+
+
+
+
 
