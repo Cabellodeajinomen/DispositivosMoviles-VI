@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Práctica 4 - Comunicación entre Actividades.</string>
+    <string name="titulo_formulario">Editor de perfil</string>
+    <string name="titulo_resumen">Resumen del perfil</string>
+
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_edad">Edad</string>
+    <string name="hint_ciudad">Ciudad</string>
+    <string name="hint_correo">Correo electrónico</string>
+
+    <string name="label_nombre">Nombre:</string>
+    <string name="label_edad">Edad:</string>
+    <string name="label_ciudad">Ciudad:</string>
+    <string name="label_correo">Correo electrónico:</string>
+
+    <string name="btn_continuar">Continuar</string>
+    <string name="btn_limpiar">Limpiar</string>
+    <string name="btn_confirmar">Confirmar</string>
+    <string name="btn_volver_editar">Volver a editar</string>
+
+    <string name="toast_perfil_guardado">Perfil guardado correctamente</string>
+    <string name="error_campos_obligatorios">Completa todos los campos para continuar</string>
+    <string name="error_edad_invalida">La edad debe estar entre 1 y 120</string>
+    <string name="error_correo_invalido">Ingresa un correo válido</string>
+    <string name="error_usuario_no_recibido">No se recibieron datos del usuario</string>
+</resources>
