@@ -1,19 +1,20 @@
+/*
+ * Descripcion: Modelo serializable para transportar datos del perfil entre actividades.
+ * Autor: Alex Rhoddo P.
+ * Fecha de creacion: 26-04-2026
+ * Fecha de ultima modificacion: 27-04-2026
+ */
+
 package com.example.practica5formulariomejorado.util
 
 import com.example.practica5formulariomejorado.model.FormData
 import com.example.practica5formulariomejorado.model.FormErrors
 
-/**
- * Objeto con funciones de validación para el formulario
- * Implementa todas las reglas de validación requeridas
- */
+// Objeto con funciones de validacion para el formulario
+// Implementa todas las reglas de validacion requeridas
 object FormValidator {
 
-    /**
-     * Valida el nombre del usuario
-     * @param name Nombre del usuario
-     * @return Mensaje de error o null si es válido
-     */
+    // Valida el nombre del usuario
     fun validateName(name: String): String? {
         return when {
             name.isBlank() -> "El nombre es obligatorio"
@@ -22,51 +23,35 @@ object FormValidator {
         }
     }
 
-    /**
-     * Valida la edad del usuario
-     * @param age Edad del usuario como string
-     * @return Mensaje de error o null si es válido
-     */
+    // Valida la edad del usuario
     fun validateAge(age: String): String? {
         return when {
             age.isBlank() -> "La edad es obligatoria"
-            !age.all { it.isDigit() } -> "La edad debe contener solo números"
-            age.toIntOrNull() == null -> "La edad no es un número válido"
+            !age.all { it.isDigit() } -> "La edad debe contener solo numeros"
+            age.toIntOrNull() == null -> "La edad no es un numero valido"
             age.toInt() < 18 -> "Debes ser mayor de 18 años"
             age.toInt() > 120 -> "La edad debe ser realista"
             else -> null
         }
     }
 
-    /**
-     * Valida el correo electrónico
-     * @param email Correo electrónico del usuario
-     * @return Mensaje de error o null si es válido
-     */
+    // Valida el correo electronico
     fun validateEmail(email: String): String? {
         val emailRegex = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
         return when {
             email.isBlank() -> "El correo es obligatorio"
             !email.contains("@") -> "El correo debe contener @"
-            !emailRegex.matches(email) -> "El correo debe ser válido (ej: usuario@dominio.com)"
+            !emailRegex.matches(email) -> "El correo debe ser valido (ej: usuario@dominio.com)"
             else -> null
         }
     }
 
-    /**
-     * Valida los términos aceptados
-     * @param acceptTerms Si el usuario aceptó los términos
-     * @return Mensaje de error o null si es válido
-     */
+    // Valida los terminos aceptados
     fun validateTerms(acceptTerms: Boolean): String? {
-        return if (!acceptTerms) "Debes aceptar los términos y condiciones" else null
+        return if (!acceptTerms) "Debes aceptar los terminos y condiciones" else null
     }
 
-    /**
-     * Valida el formulario completo
-     * @param formData Datos del formulario a validar
-     * @return Objeto FormErrors con todos los errores encontrados
-     */
+    // Valida el formulario completo
     fun validateForm(formData: FormData): FormErrors {
         return FormErrors(
             nameError = validateName(formData.name),
@@ -76,11 +61,7 @@ object FormValidator {
         )
     }
 
-    /**
-     * Verifica si el formulario es válido
-     * @param errors Objeto FormErrors con los errores
-     * @return true si no hay errores, false en caso contrario
-     */
+    // Verifica si el formulario es valido
     fun isFormValid(errors: FormErrors): Boolean {
         return errors.nameError == null &&
                 errors.ageError == null &&
@@ -88,4 +69,5 @@ object FormValidator {
                 errors.termsError == null
     }
 }
+
 
