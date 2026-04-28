@@ -1,4 +1,4 @@
-package com.example.prctica4_comunicacinentreactividades
+package com.example.practica5
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

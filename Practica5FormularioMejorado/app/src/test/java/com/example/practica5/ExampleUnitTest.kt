@@ -1,4 +1,4 @@
-package com.example.prctica4_comunicacinentreactividades
+package com.example.practica5
 
 import org.junit.Test
 
