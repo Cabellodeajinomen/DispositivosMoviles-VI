@@ -1,3 +1,10 @@
+/*
+ * Descripcion: Modelo serializable para transportar datos del perfil entre actividades.
+ * Autor: Alex Rhoddo P.
+ * Fecha de creacion: 26-04-2026
+ * Fecha de ultima modificacion: 27-04-2026
+ */
+
 package com.example.practica5formulariomejorado.ui.screens
 
 import androidx.compose.foundation.background
@@ -13,6 +20,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -22,6 +30,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.practica5formulariomejorado.model.FormData
@@ -34,35 +44,26 @@ import com.example.practica5formulariomejorado.ui.components.LevelSlider
 import com.example.practica5formulariomejorado.ui.components.TermsCheckbox
 import com.example.practica5formulariomejorado.util.FormValidator
 
-/**
- * Pantalla principal del formulario mejorado
- * Implementa todos los requisitos de la práctica 5:
- * - Campos obligatorios: nombre, edad, correo
- * - Componentes: RadioButton, Checkbox, Switch, Slider
- * - Validaciones completas
- * - Botón inteligente
- * - Mostrar resultado
- * - Botón limpiar
- * - Extras: mensajes de error, color del resultado, contador de caracteres
- */
+// Pantalla principal del formulario mejorado
+// Implementa todos los requisitos de la practica 5
 @Composable
 fun ImprovedFormScreen() {
     // Estado del formulario
     var formData by remember { mutableStateOf(FormData()) }
 
-    // Errores de validación
+    // Errores de validacion
     var formErrors by remember { mutableStateOf(FormValidator.validateForm(formData)) }
 
     // Estado del resultado
     var registrationResult by remember { mutableStateOf<RegistrationResult?>(null) }
 
-    // Función para actualizar el formulario y revalidar
+    // Funcion para actualizar el formulario y revalidar
     fun updateFormData(newData: FormData) {
         formData = newData
         formErrors = FormValidator.validateForm(newData)
     }
 
-    // Función para registrar/enviar el formulario
+    // Funcion para registrar/enviar el formulario
     fun submitForm() {
         if (FormValidator.isFormValid(formErrors)) {
             registrationResult = RegistrationResult(
@@ -77,7 +78,7 @@ fun ImprovedFormScreen() {
         }
     }
 
-    // Función para limpiar el formulario
+    // Funcion para limpiar el formulario
     fun clearForm() {
         formData = FormData()
         formErrors = FormValidator.validateForm(formData)
@@ -91,7 +92,7 @@ fun ImprovedFormScreen() {
             .padding(16.dp)
             .background(Color.White)
     ) {
-        // Título
+        // Titulo
         Text(
             text = "Formulario de Registro",
             fontSize = 24.sp,
@@ -99,9 +100,9 @@ fun ImprovedFormScreen() {
             modifier = Modifier.padding(bottom = 24.dp)
         )
 
-        // Sección de campos obligatorios
+        // Seccion de campos obligatorios
         Text(
-            text = "Información Personal",
+            text = "Informacion Personal",
             fontSize = 16.sp,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(bottom = 16.dp)
@@ -138,21 +139,21 @@ fun ImprovedFormScreen() {
         FormTextField(
             value = formData.email,
             onValueChange = { updateFormData(formData.copy(email = it)) },
-            label = "Correo Electrónico",
+            label = "Correo Electronico",
             error = formErrors.emailError,
             keyboardType = KeyboardType.Email,
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
-        // Sección de componentes adicionales
+        // Seccion de componentes adicionales
         Text(
-            text = "Información Adicional",
+            text = "Informacion Adicional",
             fontSize = 16.sp,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
-        // Selector de Género (RadioButton)
+        // Selector de Genero (RadioButton)
         GenderSelector(
             selectedGender = formData.gender,
             onGenderSelected = { updateFormData(formData.copy(gender = it)) },
@@ -172,7 +173,7 @@ fun ImprovedFormScreen() {
             modifier = Modifier.padding(vertical = 16.dp)
         )
 
-        // Checkbox Términos
+        // Checkbox Terminos
         TermsCheckbox(
             acceptTerms = formData.acceptTerms,
             onTermsChange = { updateFormData(formData.copy(acceptTerms = it)) },
@@ -180,13 +181,13 @@ fun ImprovedFormScreen() {
             modifier = Modifier.padding(bottom = 24.dp)
         )
 
-        // Botones de acción
+        // Botones de accion
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp)
         ) {
-            // Botón Registrar (inteligente - deshabilitado si hay errores)
+            // Boton Registrar (inteligente - deshabilitado si hay errores)
             Button(
                 onClick = { submitForm() },
                 enabled = FormValidator.isFormValid(formErrors),
@@ -197,7 +198,7 @@ fun ImprovedFormScreen() {
                 Text("Registrar")
             }
 
-            // Botón Limpiar
+            // Boton Limpiar
             Button(
                 onClick = { clearForm() },
                 modifier = Modifier.weight(1f)
@@ -210,7 +211,7 @@ fun ImprovedFormScreen() {
         if (registrationResult != null && registrationResult!!.isSuccess) {
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Card con resultado (con fondo verde cuando es válido)
+            // Card con resultado (con fondo verde cuando es valido)
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -231,9 +232,9 @@ fun ImprovedFormScreen() {
                     Text(
                         text = buildString {
                             append("Usuario: ${registrationResult!!.userName}\n")
-                            append("Edad: ${registrationResult!!.userAge} años\n")
+                            append("Edad: ${registrationResult!!.userAge} anos\n")
                             append("Correo: ${registrationResult!!.userEmail}\n")
-                            append("Género: ${registrationResult!!.userGender}\n")
+                            append("Genero: ${registrationResult!!.userGender}\n")
                             append("Estado: ${if (registrationResult!!.isUserActive) "Activo" else "Inactivo"}\n")
                             append("Nivel de Experiencia: ${registrationResult!!.userLevel}/10")
                         },
@@ -246,3 +247,10 @@ fun ImprovedFormScreen() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun ImprovedFormScreenPreview() {
+    MaterialTheme {
+        ImprovedFormScreen()
+    }
+}
