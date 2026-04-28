@@ -1,3 +1,10 @@
+/*
+ * Descripcion: Modelo serializable para transportar datos del perfil entre actividades.
+ * Autor: Alex Rhoddo P.
+ * Fecha de creacion: 26-04-2026
+ * Fecha de ultima modificacion: 27-04-2026
+ */
+
 package com.example.practica5formulariomejorado.ui.components
 
 import androidx.compose.foundation.layout.Column
@@ -19,10 +26,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-/**
- * Campo de texto personalizado con validación
- * Muestra un mensaje de error debajo del campo si existe
- */
+// Campo de texto personalizado con validacion
+// Muestra un mensaje de error debajo del campo si existe
 @Composable
 fun FormTextField(
     value: String,
@@ -52,10 +57,8 @@ fun FormTextField(
     }
 }
 
-/**
- * Grupo de radio buttons para seleccionar género
- * Componente obligatorio según la práctica
- */
+// Grupo de radio buttons para seleccionar genero
+// Componente obligatorio segun la practica
 @Composable
 fun GenderSelector(
     selectedGender: String,
@@ -63,7 +66,7 @@ fun GenderSelector(
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
-        Text("Género", fontSize = 14.sp, modifier = Modifier.padding(bottom = 8.dp))
+        Text("Genero", fontSize = 14.sp, modifier = Modifier.padding(bottom = 8.dp))
         val options = listOf("Masculino", "Femenino", "Otro")
         options.forEach { gender ->
             Row(
@@ -82,10 +85,8 @@ fun GenderSelector(
     }
 }
 
-/**
- * Switch para indicar si el usuario está activo
- * Componente obligatorio según la práctica
- */
+// Switch para indicar si el usuario esta activo
+// Componente obligatorio segun la practica
 @Composable
 fun ActiveUserSwitch(
     isActive: Boolean,
@@ -107,10 +108,8 @@ fun ActiveUserSwitch(
     }
 }
 
-/**
- * Slider para seleccionar el nivel de experiencia (0-10)
- * Componente obligatorio según la práctica
- */
+// Slider para seleccionar el nivel de experiencia (0-10)
+// Componente obligatorio segun la practica
 @Composable
 fun LevelSlider(
     level: Float,
@@ -136,11 +135,9 @@ fun LevelSlider(
     }
 }
 
-/**
- * Checkbox para aceptar términos
- * Componente obligatorio según la práctica
- * Muestra mensaje de error si no está seleccionado
- */
+// Checkbox para aceptar terminos
+// Componente obligatorio segun la practica
+// Muestra mensaje de error si no esta seleccionado
 @Composable
 fun TermsCheckbox(
     acceptTerms: Boolean,
@@ -159,7 +156,7 @@ fun TermsCheckbox(
                 checked = acceptTerms,
                 onCheckedChange = onTermsChange
             )
-            Text("Acepto términos y condiciones", modifier = Modifier.padding(start = 8.dp))
+            Text("Acepto terminos y condiciones", modifier = Modifier.padding(start = 8.dp))
         }
         if (error != null) {
             Text(
@@ -172,10 +169,8 @@ fun TermsCheckbox(
     }
 }
 
-/**
- * Contador de caracteres para el nombre
- * Componente extra para mejorar la UX
- */
+// Contador de caracteres para el nombre
+// Componente extra para mejorar la UX
 @Composable
 fun CharacterCounter(
     currentLength: Int,
@@ -189,4 +184,3 @@ fun CharacterCounter(
         modifier = modifier.padding(top = 4.dp)
     )
 }
-
