@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Reproductor con Portadas</string>
+    <string name="image_section_title">Portada de la Cancion</string>
+    <string name="image_description">Portada de la cancion actual</string>
+    <string name="image_toast_message">Portada seleccionada</string>
+    <string name="music_section_title">Reproductor de Musica</string>
+    <string name="music_status_ready">Estado: listo para reproducir</string>
+    <string name="music_status_playing">Estado: reproduciendo</string>
+    <string name="music_status_paused">Estado: pausado</string>
+    <string name="music_status_stopped">Estado: detenido</string>
+    <string name="song_confident">Confident - Justin Bieber</string>
+    <string name="song_die_for_you">Die For You (Remix) - The Weeknd, Ariana Grande</string>
+    <string name="song_name_placeholder">Cancion: -</string>
+    <string name="play_symbol">▶</string>
+    <string name="skip_symbol">⏭</string>
+    <string name="stop_symbol">⏹</string>
+
+    <string name="audio_error">No se pudo reproducir el audio local.</string>
+</resources>

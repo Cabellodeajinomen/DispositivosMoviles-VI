@@ -1,0 +1,27 @@
+## Android Studio / IntelliJ
+*.iml
+.idea/
+
+## Gradle
+.gradle/
+.kotlin/
+**/build/
+
+## Local machine config
+local.properties
+
+## Native build outputs
+.externalNativeBuild/
+.cxx/
+
+## Misc
+.DS_Store
+Thumbs.db
+Desktop.ini
+captures/
+*.log
+
+## Signing files (do not upload)
+*.jks
+*.keystore
+
