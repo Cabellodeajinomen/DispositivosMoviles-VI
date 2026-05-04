@@ -1,0 +1,39 @@
+# SO / temporales
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+
+# Gradle / Kotlin
+.gradle/
+**/.gradle/
+**/.kotlin/
+
+# Archivos locales de entorno
+local.properties
+**/local.properties
+**/gradle/gradle-daemon-jvm.properties
+
+# Build outputs
+build/
+**/build/
+captures/
+**/captures/
+.externalNativeBuild/
+**/.externalNativeBuild/
+.cxx/
+**/.cxx/
+
+# Logs
+*.log
+
+# Mantener wrapper de Gradle versionado
+!**/gradlew
+!**/gradlew.bat
+!**/gradle/wrapper/gradle-wrapper.jar
+!**/gradle/wrapper/gradle-wrapper.properties
+
