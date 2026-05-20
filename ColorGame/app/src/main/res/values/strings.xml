@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ColorGame</string>
+    <string name="welcome_title">Juego de Colores</string>
+    <string name="welcome_rules">Presiona el boton del color que coincida con el color mostrado. Tienes 30 segundos para sumar la mayor cantidad de aciertos.</string>
+    <string name="start_game">Iniciar Juego</string>
+    <string name="game_title">Partida en curso</string>
+    <string name="target_color_label">Color objetivo</string>
+    <string name="score_label">Puntaje</string>
+    <string name="time_label">Tiempo restante</string>
+    <string name="feedback_label">Feedback</string>
+    <string name="result_title">Resultados</string>
+    <string name="final_score_label">Puntaje final</string>
+    <string name="best_score_label">Puntaje mas alto</string>
+    <string name="history_title">Historial de partidas</string>
+    <string name="play_again">Volver a jugar</string>
+</resources>

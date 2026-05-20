@@ -1,0 +1,45 @@
+## Android/Gradle
+.gradle/
+/build/
+**/build/
+
+# IntelliJ / Android Studio
+/.idea/
+*.iml
+*.iws
+
+# Local config (do not commit)
+/local.properties
+
+# NDK/Native build
+.externalNativeBuild/
+.cxx/
+
+# Generated files
+**/generated/
+
+# Captures and tooling
+/captures/
+
+# Kotlin
+.kotlin/
+
+# Keystore and keys
+*.jks
+key.properties
+
+# APKs and bundles
+*.apk
+*.ap_
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary
+*.tmp
+*.temp
+~$*
