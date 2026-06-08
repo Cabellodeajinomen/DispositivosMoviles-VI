@@ -6,6 +6,7 @@ package com.example.colorgame.utils
 import android.content.Context
 import androidx.core.content.edit
 
+// Esta clase se encarga de guardar y recuperar el puntaje más alto usando SharedPreferences.
 class ScorePreferences(context: Context) {
 
     private val preferences = context.applicationContext.getSharedPreferences(

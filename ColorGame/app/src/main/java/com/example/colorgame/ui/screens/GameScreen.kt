@@ -41,18 +41,19 @@ fun GameScreen(
     navController: NavController,
     viewModel: GameViewModel,
 ) {
+    // Obtenemos el estado actual del juego desde el ViewModel.
     val uiState by viewModel.uiState.collectAsState()
     val animatedTargetColor by animateColorAsState(
         targetValue = uiState.targetColor.color,
         label = "targetColor",
     )
 
-    // Start the timer and reset state when the screen appears.
+    // Iniciamos el juego al entrar a la pantalla para que el temporizador comience.
     LaunchedEffect(Unit) {
         viewModel.startGame()
     }
 
-    // Move to results when the timer ends.
+    // Navegamos a la pantalla de resultados cuando el juego termina.
     LaunchedEffect(uiState.isGameOver) {
         if (uiState.isGameOver) {
             navController.navigate("result") {
@@ -92,8 +93,8 @@ fun GameScreen(
                         text = stringResource(R.string.target_color_label),
                         style = MaterialTheme.typography.titleMedium,
                     )
-                    // Animated box shows the color to match.
-                    Box(
+                    // El color objetivo se muestra en una caja grande que cambia suavemente de color.
+                    Box (
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(110.dp)
@@ -112,7 +113,7 @@ fun GameScreen(
                 Text(text = "${stringResource(R.string.time_label)}: ${uiState.timeLeft}s")
             }
             Spacer(modifier = Modifier.height(12.dp))
-            // Feedback changes after each answer.
+            // El mensaje de feedback cambia de color segun el resultado del intento.
             Text(
                 text = uiState.feedback,
                 style = MaterialTheme.typography.titleMedium,
@@ -124,7 +125,7 @@ fun GameScreen(
                 },
             )
             Spacer(modifier = Modifier.height(20.dp))
-            // Buttons are grouped by rows to keep the layout simple.
+            // Las opciones de colores se muestran en filas de 3 botones cada una.
             uiState.options.chunked(3).forEach { rowOptions ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),

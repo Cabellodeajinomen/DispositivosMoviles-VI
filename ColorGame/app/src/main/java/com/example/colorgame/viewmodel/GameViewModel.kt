@@ -36,6 +36,7 @@ class GameViewModel(
     )
     val uiState: StateFlow<GameUiState> = _uiState.asStateFlow()
 
+    // Boton de inicio que resetea el estado y comienza la cuenta regresiva.
     fun startGame() {
         timerJob?.cancel()
         // Reinicia el puntaje y el color objetivo para una nueva partida.
@@ -53,6 +54,7 @@ class GameViewModel(
         startTimer()
     }
 
+    // Maneja la seleccion de un color por parte del usuario.
     fun onColorSelected(selectedColor: GameColor) {
         val currentState = _uiState.value
         if (!currentState.isGameRunning || currentState.isGameOver || currentState.timeLeft <= 0) {
@@ -101,6 +103,7 @@ class GameViewModel(
         }
     }
 
+    // Termina la partida, guarda el puntaje y actualiza el historial.
     private fun finishGame() {
         val currentState = _uiState.value
         if (currentState.isGameOver) {
